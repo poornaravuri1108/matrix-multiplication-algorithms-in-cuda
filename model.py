@@ -22,8 +22,22 @@ void matmul_cpu(const float* A, const float* B, float* C, int M, int N, int K) {
     }
 }
 
-# Step 2 - max_abs_diff (not yet solved)
-# TODO: implement
+# Step 2 - max_abs_diff
+#include <cmath>
+
+float max_abs_diff(const float* a, const float* b, int n) {
+    // TODO: largest |a[i] - b[i]| over n elements, 0 for n == 0
+    float max = 0.0f;
+    if (n==0) return max;
+    float diff = 0.0f;
+    for(int i=0; i<n; i++){
+        diff = std::abs(a[i]-b[i]);
+        if (diff > max) {
+            max = diff;
+        }
+    }
+    return max;
+}
 
 # Step 3 - matmul_naive_kernel (not yet solved)
 # TODO: implement
